@@ -1,0 +1,30 @@
+<%- include("header") -%> <!---header include ka syntax alag hai -->
+    <div class="box" id="heading">
+<h1><%= ListTitle %></h1>
+</div>
+<div class="box">
+
+  
+  <!--- <li> newListItem %></li>--->
+ <!--- <div class="box">-->
+     <!--mongoose 7-->
+<% newListItems.forEach(function(item){ %><!--iska syntx alag aur substitute karne wali jagah ka alag hai -->
+<form action="/delete" mathod="post">
+    <div class="item">
+    <input type="checkbox" name="checkbox" value="<%=item._id%>" onchange="this.form.submit()">
+    <p>
+        <%= item.name %> </p><!--idhar %=-->
+</div>
+    <input type="hidden" name="listName" value="<%= listTitle %>"></input>
+</form>
+<% })%><!--yahan pr sirf %-->
+  
+
+<form class="item" action="/" method="post">
+    <input type="text" name="newItem" placeholder="New Item">
+    <button type="submit" name="button">+</button>
+</form>
+</div>
+</body>
+
+</html>
